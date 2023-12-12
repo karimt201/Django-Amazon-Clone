@@ -28,6 +28,9 @@ class Product(models.Model):
         self.slug = slugify(self.name)
         super(Product,self).save(*args , **kwargs) 
 
+    def __str__(self) :
+        return self.name
+
     
 
 class ProductImages(models.Model):
@@ -47,6 +50,10 @@ class Brand(models.Model):
         self.slug = slugify(self.name)
         super(Brand,self).save(*args , **kwargs) 
 
+    def __str__(self) :
+        return self.name
+
+
 
 
 class Review(models.Model):
@@ -55,3 +62,7 @@ class Review(models.Model):
     review = models.TextField(_('review'),max_length=500)
     rate = models.IntegerChoices(_('rate'),choices = [(i,i) for i in range(1,6)])
     create_at = models.DateTimeField(_('create_at'),default=timezone.now) 
+
+    def __str__(self) :
+        return f"{self.user} - {self.product} - {self.rate}"
+
