@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView , DetailView
-from .models import Product , Brand , Review
+from .models import Product , Brand , review
 
 
 class ProductList(ListView):
