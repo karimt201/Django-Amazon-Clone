@@ -22,7 +22,7 @@ class Product(models.Model):
     description = models.TextField(_('description'),max_length=50000)
     tags = TaggableManager()
     Brand = models.ForeignKey('Brand',verbose_name=_('brand'),related_name='Product_brand',on_delete=models.SET_NULL,null=True)
-    slug = models.SlugField(blank=True,null=True)
+    slug = models.SlugField(blank=True,null=True,unique=True)
 
     def save(self, *args , **kwargs) : 
         self.slug = slugify(self.name)
