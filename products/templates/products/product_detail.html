@@ -37,18 +37,14 @@
                                 <label class="details-label off">-10%</label>
                             </div>
                             <ul class="details-preview"> 
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
+                                {% for image in images %}
+                                    <li><img src="{{image.image.url}}" alt="product"></li>
+                                {% endfor %}
                             </ul>
                             <ul class="details-thumb">
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
-                                <li><img src="images/product/01.jpg" alt="product"></li>
+                            {% for image in images %}
+                                <li><img src="{{image.image.url}}" alt="product"></li>
+                            {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -130,12 +126,12 @@
                             <h3 class="frame-title">Description</h3>
                             <div class="tab-descrip">
                                 <p>{{object.description}}</p>
-                            </div>
+                                </div>
                         </div>
                         <div class="product-details-frame">
                             <h3 class="frame-title">Reviews (2)</h3>
                             <ul class="review-list">
-                                {% for review in object.review_product.all %}
+                                {% for review in reviews %}
                                     <li class="review-item">
                                         <div class="review-media">
                                             <a class="review-avatar" href="#">
